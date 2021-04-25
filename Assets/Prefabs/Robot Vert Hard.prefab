@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4337078307381075737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613482951275229561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adbede3df1b2aef45958285a3bd52309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  vertical: 1
+  changeTime: 3
+  smokeEffect: {fileID: 0}
+--- !u!1001 &563114519905291742
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5885733138812750670, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745684886101025978, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176597367830707367, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_Name
+      value: Robot Vert Hard
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774446453580699716, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_Color.b
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774446453580699716, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: m_Color.g
+      value: 0.44705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193219749800056131, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -5885733138812750670, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+--- !u!1 &4613482951275229561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5176597367830707367, guid: cd6f97f49b3bd4948bb5eff7e9563129, type: 3}
+  m_PrefabInstance: {fileID: 563114519905291742}
+  m_PrefabAsset: {fileID: 0}
