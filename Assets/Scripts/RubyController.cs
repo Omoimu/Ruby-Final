@@ -9,6 +9,10 @@ public class RubyController : MonoBehaviour
     public int scoreVal = 0;
     public Text score;
     public Text results;
+    public static int level;
+
+    public int cogs = 4;
+    public Text cogText;
 
     public bool gameOver = false;
 
@@ -22,6 +26,8 @@ public class RubyController : MonoBehaviour
     public AudioClip hitSound;
     public AudioClip winSound;
     public AudioClip loseSound;
+    public AudioClip potionSound;
+    public AudioClip frogSound;
     public AudioClip BGM;
     public AudioSource musicSource;
 
@@ -57,8 +63,9 @@ public class RubyController : MonoBehaviour
         currentHealth = maxHealth;
 
         audioSource = GetComponent<AudioSource>();
-
+        cogs = 4;
         score.text = "Fixed Robots: " + scoreVal.ToString();
+        cogText.text = "Cogs: " + cogs.ToString();
         results.text = "";
     }
 
@@ -87,9 +94,11 @@ public class RubyController : MonoBehaviour
                 isInvincible = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && cogs > 0)
         {
             Launch();
+            cogs = cogs - 1;
+            cogText.text = "Cogs: " + cogs.ToString();
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -97,10 +106,24 @@ public class RubyController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
             if (hit.collider != null)
             {
-                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
-                if (character != null)
+                if (scoreVal == 4)
                 {
-                    character.DisplayDialog();
+                    NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                    if (character != null)
+                    {
+                        PlaySound(frogSound);
+                        level = 2;
+                        SceneManager.LoadScene("Level 2");
+                    }
+                }
+                else
+                {
+                    NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                    if (character != null)
+                    {
+                        PlaySound(frogSound);
+                        character.DisplayDialog();
+                    }
                 }
             }
         }
@@ -160,13 +183,20 @@ public class RubyController : MonoBehaviour
             musicSource.Play();
         }
     }
-    
-    public void IncreaseScore()
+
+    public void ChangeSpeed(int amount)
+    {
+        if(speed >= 3)
+        {
+            speed = speed - 1;
+        }
+    }
+        public void IncreaseScore()
     {
         scoreVal = scoreVal + 1;
         score.text = "Fixed Robots: " + scoreVal.ToString();
 
-        if(scoreVal == 4)
+        if(scoreVal == 4 && level == 2)
         {
             results.text = "You Win! Press R to Restart. Game Created by Dominique Mobley";
             speed = 0;
@@ -174,6 +204,30 @@ public class RubyController : MonoBehaviour
             musicSource.clip = winSound;
             musicSource.Play();
         }
+        else if (scoreVal == 4)
+        {
+            results.text = "Talk to Jambi to visit stage two!";
+            //gameOver = true;
+            //musicSource.clip = winSound;
+            //musicSource.Play();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "CogBag")
+        {
+            cogs += 3;
+            cogText.text = "Cogs: " + cogs.ToString();
+            Destroy(collision.collider.gameObject);
+        }
+        else if(collision.collider.tag == "Potion")
+        {
+            PlaySound(potionSound);
+            speed = 5.0f;
+            Destroy(collision.collider.gameObject);
+        }
+
     }
 
     void Launch()

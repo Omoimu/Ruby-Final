@@ -29,6 +29,7 @@ public class Projectile : MonoBehaviour
     {
         EnemyController e = other.collider.GetComponent<EnemyController>();
         EnemyControllerHard e1 = other.collider.GetComponent<EnemyControllerHard>();
+        WolfController e2 = other.collider.GetComponent<WolfController>();
         if (e != null)
         {
             e.Fix();
@@ -36,6 +37,10 @@ public class Projectile : MonoBehaviour
         if(e1 != null)
         {
             e1.Fix();
+        }
+        if (e2 != null)
+        {
+            e2.Fix();
         }
         Destroy(gameObject);
     }
